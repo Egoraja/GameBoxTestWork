@@ -45,8 +45,7 @@ public class PuzzlePiece : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-        puzzleBody.enabled = true;
-        puzzleBody.isTrigger = false;
+        puzzleBody.enabled = true;        
         audioController.GetComponent<AudioController>().DropPlay();
         StartCoroutine(Timer());
     }    
@@ -73,6 +72,7 @@ public class PuzzlePiece : MonoBehaviour
     private IEnumerator Timer()
     {              
         yield return new WaitForSeconds(0.15f);
+        puzzleBody.isTrigger = false;
         transform.position = puzzleManager.GetComponent<PuzzleManager>().bornPlace[int.Parse(gameObject.name)].transform.position;               
     }   
 }
