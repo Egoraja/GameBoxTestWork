@@ -145,6 +145,7 @@ public class PlayerController : MonoBehaviour
         audioController.GetComponent<AudioController>().GameOverPlay();
         gameOverPanel.SetActive(true);
         Time.timeScale = 0;
+        MainMenuController.GoldCount += puzzleManager.GoldCollection;
         StopAllCoroutines();
     }
 }
